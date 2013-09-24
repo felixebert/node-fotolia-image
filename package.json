@@ -1,0 +1,19 @@
+{
+  "name": "fotolia-authorlist",
+  "preferGlobal": false,
+  "version": "0.1.0",
+  "author": "Felix Ebert <felix.ebert@if-core.de>",
+  "description": "list all authors of fotolia images inside a folder",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/opendatalab-de/fotolia-authorlist"
+  },
+  "dependencies" : {
+    "exif"   :  "*"
+  },
+  "license": "MIT",
+  "engines": {
+    "node": ">=0.10"
+  }
+}
+
