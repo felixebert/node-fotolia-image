@@ -1,3 +1,3 @@
 Usage:
 
-node converter.js <path>
+node fotolia-authorlist.js <path>
