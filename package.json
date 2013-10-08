@@ -1,15 +1,17 @@
 {
-  "name": "fotolia-authorlist",
+  "name": "fotolia-image",
   "preferGlobal": false,
   "version": "0.1.0",
   "author": "Felix Ebert <felix.ebert@if-core.de>",
-  "description": "list all authors of fotolia images inside a folder",
+  "description": "extract the author name of a fotolia image / list the authors of all fotolia images inside a folder",
+  "main" : "./lib/fotolia-image.js",
   "repository": {
     "type": "git",
-    "url": "https://github.com/opendatalab-de/fotolia-authorlist"
+    "url": "https://github.com/felixebert/node-fotolia-image"
   },
   "dependencies" : {
-    "exif"   :  "*"
+    "exif"   :  "*",
+    "optimist": "~0.6.0"
   },
   "license": "MIT",
   "engines": {
