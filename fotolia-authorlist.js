@@ -1,23 +1,21 @@
-var fs = require('fs'), path = require('path'), ExifImage = require('exif').ExifImage, FotoliaImage = require('./lib/fotolia-image.js');
+var fs = require('fs'), path = require('path'), FotoliaImage = require('./lib/FotoliaImage.js');
 var argv = require('optimist').usage('List the authors of all fotolia images in a directory\nUsage: $0 [directory]').demand(1).argv;
 
 var imagePath = argv._[0] + path.sep;
 
-fs.readdirSync(imagePath).forEach(function(file) {
-	if (path.extname(file) === '.jpg' || path.extname(file) === '.jpeg') {
-		fs.stat(imagePath + file, function(fsError, stats) {
-			if (fsError) {
-				throw new Error(fsError);
-			}
-
-			if (stats.isFile()) {
-				var image = new FotoliaImage(imagePath + file);
-				image.getAuthor(function(author) {
-					if (author != null) {
-						console.log(author);
-					}
-				});
-			}
-		});
-	}
+fs.readdir(imagePath, function(err, files) {
+	files.forEach(function(file) {
+		if ((path.extname(file) === '.jpg' || path.extname(file) === '.jpeg') && file.toLowerCase().indexOf('fotolia') >= 0) {
+			fs.stat(imagePath + file, function(fsError, stats) {
+				if (stats.isFile()) {
+					var image = new FotoliaImage(imagePath + file);
+					image.getAuthor(function(err, author) {
+						if (author) {
+							console.log(author);
+						}
+					});
+				}
+			});
+		}
+	});
 });
