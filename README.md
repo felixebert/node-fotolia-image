@@ -15,6 +15,6 @@ node fotolia-authorlist.js <directory>
 node fotolia-author.js <imgFile>
 ```
 
-# API Installation
+# npm
 
 npm install --save git://github.com/felixebert/node-fotolia-image
